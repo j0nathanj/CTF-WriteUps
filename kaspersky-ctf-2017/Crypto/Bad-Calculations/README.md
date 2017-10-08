@@ -7,7 +7,7 @@ So, when looking at the code at first, it looks like an RSA encryption (generati
 When trying to run the given script, we can notice that it takes really long to execute, which makes it kind of suspicious.
 This was the point I decided to try and optimize the code and make it run faster.
 Throughout the optimization process, I noticed a few things:
-1) There parts in the code that were made complicated, but can be done in an easy way.
+1) There are parts in the code that were made complicated, but can be done in an easy way.
 2) I did not see where the RSA encryption was taking place.
 
 So, I started from the beginning of the main, and started optimizing.
