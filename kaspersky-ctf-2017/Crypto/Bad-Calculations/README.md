@@ -22,7 +22,7 @@ created some more changes)
 
 After changing the 'sdsd' function, I took a look at the 'dcew' variable.
 Using some math, I was able to simplify the term (this is not much of a difference, but still, a change...).
-The value after simplifying: ((g^22)*(r^n)) % (n*n).
+The value after simplifying: ((g^22)*(r^n)) % (n^2).
 
 Next comes the **final** and most important part!
 
