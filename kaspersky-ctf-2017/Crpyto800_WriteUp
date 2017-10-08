@@ -22,7 +22,7 @@ After changing the 'sdsd' function, I took a look at the 'dcew' variable.
 Using some math, I was able to simplify the term (this is not much of a difference, but still, a change...).
 The value after simplifying: ((g**22)*(r**n)) % (n*n).
 
-Next comes the *final* and most important part!
+Next comes the * final * and most important part!
 
 The final encryption loop.
 At first I tried understanding what each line is doing, but then, I decided to use the power of debugging.
