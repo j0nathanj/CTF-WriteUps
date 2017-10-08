@@ -36,7 +36,7 @@ I put a print before the second line and after, and I noticed:
 The value of the cell in the array changes from x, to x+b, where b is a constant assigned with the value 22.
 
 This means that, after this whole RSA-like behavior, what the encryption does, is basically incease each value of the content inside the
-KLCTF flag format brackets (i.e, the content here is flag123 : KLCTF{flag123}) by 22, and returns the base63 encoded string.
+KLCTF flag format brackets (i.e, the content here is flag123 : KLCTF{flag123}) by 22, and returns the base64 encoded string.
 
 I quickly made a script that that uses the encoded string, decodes it, and for each byte it decreases the value by 22.
 
