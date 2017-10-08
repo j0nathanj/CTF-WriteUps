@@ -4,7 +4,7 @@ This is a write-up on the 800 Points Crypto challenge in Kaspersky's CTF.
 
 So, when looking at the code at first, it looks like an RSA encryption (generating p and q, multiplying (p-1)*(q-1), and so on and so forth..).
 
-When trying to run the given script, we can notice that it takes really long to execute, which makes it kind of suspicious.
+When trying to run the given script, we can notice that it takes a really long time to execute, which makes it kind of suspicious.
 This was the point I decided to try and optimize the code and make it run faster.
 Throughout the optimization process, I noticed a few things:
 1) There are parts in the code that were made complicated, but can be done in an easy way.
