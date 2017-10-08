@@ -1,3 +1,5 @@
+# Bad Calculations - 800 Points - Cryptography
+
 This is a write-up on the 800 Points Crypto challenge in Kaspersky's CTF.
 
 So, when looking at the code at first, it looks like an RSA encryption (generating p and q, multiplying (p-1)*(q-1), and so on and so forth..).
@@ -22,7 +24,7 @@ After changing the 'sdsd' function, I took a look at the 'dcew' variable.
 Using some math, I was able to simplify the term (this is not much of a difference, but still, a change...).
 The value after simplifying: ((g**22)*(r**n)) % (n*n).
 
-Next comes the * final * and most important part!
+Next comes the **final** and most important part!
 
 The final encryption loop.
 At first I tried understanding what each line is doing, but then, I decided to use the power of debugging.
@@ -40,11 +42,10 @@ I quickly made a script that that uses the encoded string, decodes it, and for e
 
 I ran it, and I got the flag.
 
-The flag is: KLCTF{paillier_homomorphic_encryption}
+**The flag is: KLCTF{paillier_homomorphic_encryption}**
 
 
-------> Related Links:
+------------> Related Links <-----------------
+[###**A script to generate the flag**](https://github.com/j0nathanj/CTF-WriteUps/blob/master/kaspersky-ctf-2017/Crypto/Bad-Calculations/solve.py)
+[###**The simplified python script**](https://github.com/j0nathanj/CTF-WriteUps/blob/master/kaspersky-ctf-2017/Crypto/Bad-Calculations/simplified.py)
 
-----------> Simplified python script: 
-
-----------> Script that generates the flag:
