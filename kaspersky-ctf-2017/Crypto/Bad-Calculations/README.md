@@ -29,7 +29,7 @@ Next comes the **final** and most important part!
 The final encryption loop.
 At first I tried understanding what each line is doing, but then, I decided to use the power of debugging.
 I put a print before and after each line.
-The first line's effect did not give me anything useful, it seemed like it is generating some odd number.
+The first line's effect did not give me anything useful, it seemed like it is generating some weird number.
 The second line's effect was the heart of the challenge.
 I put a print before the second line and after, and I noticed:
 
