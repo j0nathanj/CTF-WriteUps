@@ -45,8 +45,9 @@ I ran it, and I got the flag.
 **The flag is: KLCTF{paillier_homomorphic_encryption}**
 
 ## Related Links:
+Script to generate the flag:
+[**solve.py**](https://github.com/j0nathanj/CTF-WriteUps/blob/master/kaspersky-ctf-2017/Crypto/Bad-Calculations/solve.py)
 
-[**A script to generate the flag**](https://github.com/j0nathanj/CTF-WriteUps/blob/master/kaspersky-ctf-2017/Crypto/Bad-Calculations/solve.py)
-
-[**The simplified python script**](https://github.com/j0nathanj/CTF-WriteUps/blob/master/kaspersky-ctf-2017/Crypto/Bad-Calculations/simplified.py)
+The simplified python script:
+[**simplified.py**](https://github.com/j0nathanj/CTF-WriteUps/blob/master/kaspersky-ctf-2017/Crypto/Bad-Calculations/simplified.py)
 
