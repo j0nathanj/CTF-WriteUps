@@ -4,7 +4,7 @@ This is a write-up on the 800 Points Crypto challenge in Kaspersky's CTF.
 
 So, when looking at the code at first, it looks like an RSA encryption (generating p and q, multiplying (p-1)*(q-1), and so on and so forth..).
 
-The first time running the script, **IT DOESNT EVEN RUN!**. The reason it doesn't run is that the script uses too much memory.
+The first time running the script, **IT DOESNT EVEN RUN!** The reason it doesn't run is that the script uses too much memory.
 This can be resolved by changing the "range" calls to "xrange". "xrange" differs because unlike "range", it doesn't create an actual list and iterates over it.
 
 Now, after fixing the fact that the script doesn't run,when we try to run the given script, we can notice that it takes a really long time to execute, which makes it kind of suspicious.
