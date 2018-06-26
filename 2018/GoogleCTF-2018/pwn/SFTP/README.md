@@ -86,9 +86,12 @@ This allows us to verify our `malloc()` predictions.
 After verifying our predictions, finding good "victim" and "writer" candidates, we can do the following to achieve code execution (As explained in the "The Exploit" section):
 1) Overflowing to the "victim" using the "writer", and overwriting the `char* data` field with the home `directory_entry` struct address.
 By doing so we leak an address in the binary when we read the victim's file content!
+
 2) Overflowing to the "victim" using the "writer", and overwriting the `char* data` field with a GOT entry address, allowing us to leak an address in libc when we read the victim's file content!
+
 3) Oveflowing into the "victim" using the "writer", and overwriting the `char* data` field with a the GOT entry address of `__isoc99_scanf()`, and writing the address of `system()` to the "victim" file. 
 This will overwrite the `__isoc99_scanf()` GOT entry, with the address of `system()`!
+
 4) Enjoy our sweet shell :)
 
 Flag: `CTF{Moar_Randomz_Moar_Mitigatez!}`
