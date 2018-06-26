@@ -128,8 +128,8 @@ def exploit(match, do_debug):
 	#                                                                                                                               #
 	#                           [!] Important Note [!]                                                                              #
 	# --------------------------------------------------------------------------------                                              #
-	#       The `-2` value may vary between locations around the world, since it depends on the server latency as well.             #
-	#       If the exploit does not work remotely, try changing the `-2` value to other negative numbers, i.e.: `-0`, `-1`, etc     # 
+	#       The `-0` value may vary between locations around the world, since it depends on the server latency as well.             #
+	#       If the exploit does not work remotely, try changing the `-0` value to other negative numbers, i.e.: `-0`, `-1`, etc     # 
 	#                                                                                                                               #
 	#################################################################################################################################
 
