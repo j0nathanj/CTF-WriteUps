@@ -55,17 +55,25 @@ So, let's try to break `srand`, `rand()` and finally, `malloc()`! :)
 
 The exploit consists of a few parts:
 1) Synchronize (if needed) the exploit's timer with the server's timer.
+
 2) Synchornize with the server's `rand()` calls, to allow us a reliable exploit and a reliable `malloc()` prediction. 
-After some diggig, we noticed that the first `rand()` call returns the "home" node address (will be explained in pt. 5), and the next 5 `rand()` calls are always made. By knowing that, we can consistently know the home `directory_entry` address, and all of the results that `malloc()` will return!
+After some diggig, we noticed that the first `rand()` call returns the "home" node address (will be explained in pt. 5), and the next 5 `rand()` calls are always made. By knowing that, we can consistently know the home `directory_entry` address, and 
+all of the results that `malloc()` will return!
+
 3) Search for 2 points in time, where `malloc()` would return relatively (<65535 bytes apart) close addresses.
+
 4) Use these points in time in such a way that:
     - One of the points in time (will be referred to as "victim") will be a `file_entry` struct, whose `char* data` field will be overwritten later on.
     - The second point in time (will be referred to as "writer") will overflow into the victim, and overwrite it's `char* data` field, and optionally also the `size_t size` field as well.
+
 5) Leak a binary address using the prediction of the home (`"/home/c01db33f"`) `directory_entry` struct (Which is the result of the first `malloc()`, and as we already know, we can predict the result it'll return!).
     - We'll overflow into a `file_entry` struct, and change the pointer to be home's `directory_entry` struct address.
       By doing so, when we read the file's content, we'll get the data that resides in the `directory_entry` struct, allowing us to leak an address in the binary ;D
+
 6) Leak a libc address by overflowing into a `file_entry`'s `char* data` field, we can change it to be an a GOT address, by reading from there we are able to leak an address in libc!
+
 7) Overwrite the GOT entry of `_isoc99_scanf()` with `system()`, allowing us to obtain a shell!
+
 8) Profit :D
 
 ### Leak
