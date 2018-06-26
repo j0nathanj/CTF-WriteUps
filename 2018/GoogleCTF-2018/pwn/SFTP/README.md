@@ -28,7 +28,7 @@ After reading the disassembly of the function that is responsible for the authen
 Yet, we decided to write a Z3 script to reverse the "hashing" process and retreive the password.
 The script can be found below and also in the `find_password.py` script attached.
 
-[find_password.py](https://github.com/j0nathanj/CTF-WriteUps/edit/master/2018/GoogleCTF-2018/pwn/SFTP/find_password.md)
+[find_password.py](https://github.com/j0nathanj/CTF-WriteUps/blob/master/2018/GoogleCTF-2018/pwn/SFTP/find_password.py)
 
 
 ## The Bug
@@ -101,7 +101,7 @@ Flag: `CTF{Moar_Randomz_Moar_Mitigatez!}`
 The exploit code attached below is very detailed, I added a lot of documentation to it to make the reading of it more convinient.
 (The exploit code is also attached, called `exploit.py`)
 
-[exploit.py]https://github.com/j0nathanj/CTF-WriteUps/edit/master/2018/GoogleCTF-2018/pwn/SFTP/README.md
+[exploit.py](https://github.com/j0nathanj/CTF-WriteUps/blob/master/2018/GoogleCTF-2018/pwn/SFTP/exploit.py)
 
 ## Exploit Code
 
