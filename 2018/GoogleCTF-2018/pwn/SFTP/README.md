@@ -62,7 +62,8 @@ After some diggig, we noticed that the first `rand()` call returns the "home" no
     - One of the points in time (will be referred to as "victim") will be a `file_entry` struct, whose `char* data` field will be overwritten later on.
     - The second point in time (will be referred to as "writer") will overflow into the victim, and overwrite it's `char* data` field, and optionally also the `size_t size` field as well.
 5) Leak a binary address using the prediction of the home (`"/home/c01db33f"`) `directory_entry` struct (Which is the result of the first `malloc()`, and as we already know, we can predict the result it'll return!).
-We'll overflow into a `file_entry` struct, and change the pointer to be home's `directory_entry` struct address. By doing so, when we read the file's content, we'll get the data that resides in the `directory_entry` struct, allowing us to leak an address in the binary ;D
+    - We'll overflow into a `file_entry` struct, and change the pointer to be home's `directory_entry` struct address.
+      By doing so, when we read the file's content, we'll get the data that resides in the `directory_entry` struct, allowing us to leak an address in the binary ;D
 6) Leak a libc address by overflowing into a `file_entry`'s `char* data` field, we can change it to be an a GOT address, by reading from there we are able to leak an address in libc!
 7) Overwrite the GOT entry of `_isoc99_scanf()` with `system()`, allowing us to obtain a shell!
 8) Profit :D
@@ -78,7 +79,7 @@ After verifying our predictions, finding good "victim" and "writer" candidates, 
 1) Overflowing to the "victim" using the "writer", and overwriting the `char* data` field with the home `directory_entry` struct address.
 By doing so we leak an address in the binary when we read the victim's file content!
 2) Overflowing to the "victim" using the "writer", and overwriting the `char* data` field with a GOT entry address, allowing us to leak an address in libc when we read the victim's file content!
-3) Oveflowing into the "victim" using the "writer, and overwriting the `char* data` field with a the GOT entry address of `__isoc99_scanf()`, and writing to the "victim" file the address of `system()`. 
+3) Oveflowing into the "victim" using the "writer", and overwriting the `char* data` field with a the GOT entry address of `__isoc99_scanf()`, and writing the address of `system()` to the "victim" file. 
 This will overwrite the `__isoc99_scanf()` GOT entry, with the address of `system()`!
 4) Enjoy our sweet shell :)
 
