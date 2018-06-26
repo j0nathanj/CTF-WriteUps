@@ -61,7 +61,8 @@ The exploit consists of a few parts:
 1) Synchronize (if needed) the exploit's timer with the server's timer.
 
 2) Synchornize with the server's `rand()` calls, to allow us a reliable exploit and a reliable `malloc()` prediction. 
-After some diggig, we noticed that the first `rand()` call returns the "home" node address (will be explained in pt. 5), and the next 5 `rand()` calls are always made. By knowing that, we can consistently know the home `directory_entry` address, and 
+After some digging, we noticed that the first `rand()` call returns the "home" node address (will be explained in pt. 5), and the next 5 `rand()` calls are always made.
+By knowing that, we can consistently know the home `directory_entry` address, and 
 all of the results that `malloc()` will return!
 
 3) Search for 2 points in time, where `malloc()` would return relatively (<65535 bytes apart) close addresses.
