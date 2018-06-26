@@ -18,7 +18,6 @@ def gen_constraint():
 
 for i in xrange(15):
     arr[i] = z3.BitVec('x_%d' % i, 32)
-    s.add(arr[i] > 0)
     s.add(arr[i] >60)
     s.add(arr[i] <=96)
 
