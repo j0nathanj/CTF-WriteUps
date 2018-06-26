@@ -118,7 +118,7 @@ from collections import namedtuple
 import sys
 
 libc = cdll.LoadLibrary('libc.so.6') # Allow a more accurate/fast function results/calls.
-PASSWORD = r'@@=``>QPPP@``=' # Retreived using the `decode.py` Z3-based script.
+PASSWORD = r'@@=``>QPPP@``=' # Retreived using the `find_password.py` Z3-based script.
 
 def exploit(match, do_debug):
 	global r
