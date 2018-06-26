@@ -25,6 +25,8 @@ We can create a file, create a directory, create a symlink, read a file, write t
 
 After reading the disassembly of the function that is responsible for the authentication, we noticed that this can not only be reversed, but it can also be brute-forced quite easily.
 
+After bypassing the authentication, we can find an `sftp.c` source file under `/home/src/sftp.c`, this file is handy and saves quite some reversing time.
+
 Yet, we decided to write a Z3 script to reverse the "hashing" process and retreive the password.
 The script can be found below and also in the `find_password.py` script attached.
 
