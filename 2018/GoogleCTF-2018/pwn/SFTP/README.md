@@ -10,7 +10,7 @@
 
 - Leak an address to verify our prediction (optional).
 
-- Find 2 points in time where we can get 2 `malloc()` calls relatively (65535< bytes apart) close to each other.
+- Find 2 points in time where we can get 2 `malloc()` calls relatively (65535> bytes apart) close to each other.
 
 - Make one of the calls to be a user-controlled data, and the other a pointer that is used to read and write data.
   (Such pointer exists, it actually is: `file_entry.data`)
