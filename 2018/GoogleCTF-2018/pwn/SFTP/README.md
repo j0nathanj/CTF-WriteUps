@@ -47,6 +47,7 @@ When we search for the corresponding `srand` call, we find a call to `srand` occ
 In the same function, the program also `mmap()`s the following address range:`0x40000000 - 0x60100000` as RW memory.
 
 The problem relies in the fact that `malloc()` returns a pointer based on the result of that `rand()` call. So, theoretically, if we know what the is result of the `rand()` call, we can also know what `malloc()` will return!
+
 Using the same "mind-set", if we can predict what `malloc()` will return, we can also trick malloc to return 2 (relatively) close addresses when we call it twice. 
 So, let's try to break `srand`, `rand()` and finally, `malloc()`! :)
 
