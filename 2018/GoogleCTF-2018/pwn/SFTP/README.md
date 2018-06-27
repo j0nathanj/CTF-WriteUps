@@ -25,10 +25,10 @@ We can create a file, create a directory, create a symlink, read a file, write t
 
 After reading the disassembly of the function that is responsible for the authentication, we noticed that this can not only be reversed, but it can also be brute-forced quite easily.
 
-After bypassing the authentication, we can find an `sftp.c` source file under `/home/src/sftp.c`, this file is handy and saves quite some reversing time.
-
 Yet, we decided to write a Z3 script to reverse the "hashing" process and retreive the password.
-The script can be found below and also in the `find_password.py` script attached.
+The script can be found below and also in the `find_password.py` script attached below.
+
+After bypassing the authentication, we can find an `sftp.c` source file under `/home/src/sftp.c`, this file is handy and saves quite some reversing time. (Note: the `sftp.c` source and `flag` dummy file are embedded within the binary and decrypted in runtime)
 
 [find_password.py](https://github.com/j0nathanj/CTF-WriteUps/blob/master/2018/GoogleCTF-2018/pwn/SFTP/find_password.py)
 
@@ -475,7 +475,7 @@ if __name__ == '__main__':
 	do_debug = False
 	
 	if len(sys.argv) > 1:
-		if argv[2] == '-L' or argv[2] == '-l':
+		if argv[1] == '-L' or argv[1] == '-l':
 			do_debug = True
 	
 	match = find_good_time(libc.time(0))
