@@ -40,7 +40,7 @@ The bug in this challenge is the way `malloc()`, `realloc()` and `free()` are im
 `malloc()`'s functionality can be simplified to the following code:
 
 ```C
-int malloc(size_t size){
+void* malloc(size_t size){
 	return rand() & 0x1FFFFFFF | 0x40000000;
 }
 ```
