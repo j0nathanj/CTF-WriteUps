@@ -83,8 +83,8 @@ all of the results that `malloc()` will return!
 
 ### Leak
 
-In the function `new_entry()`, there's a call to `strcpy()` which allows us to data if we simply write a 24 bytes long directory name, and then making a symlink to it. The read will also print off the next 4 bytes the `link_entry` struct, which happen to be 4 bytes from the `entry* target` field (A pointer to the `mmapd()` region.
-This allows us to verify our `malloc()` predictions.
+In the function `new_entry()`, there's a call to `strcpy()` which allows us to leak data if we simply write a 24 bytes long directory name, and then we make a symlink to it. The read will also print off the next 4 bytes from the `link_entry` struct, which happens to be 4 bytes from the `entry* target` field (A pointer to the `mmapd()` region; This allows us to verify our prediction since the leaked pointer is the a pointer returned by `malloc()`!).
+This is how we can verify our `malloc()` predictions.
 
 ### Code Execution
 
