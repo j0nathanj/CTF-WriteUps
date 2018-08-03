@@ -63,7 +63,7 @@ struct ZIP_EndOfCentralDirRecord
 
 As reported by the finder, the old bug was in the function `CZipPackFile::Prepare`. 
 
-![](Link_To_old_bug_here)
+![](https://github.com/j0nathanj/CTF-WriteUps/blob/master/2018/RealWorldCTF-2018/pwn/P90_Rush_B/images/Old_Bug.jpg)
 
 (Credit for this picture goes to the original bug-finder)
 
@@ -115,15 +115,15 @@ We decided to debug the PoC that crashed due to an assertion, just to find out i
 
 In order to spot the "old" vulnerable function in IDA, we opened up `dedicated.so`, and searched for strings that were present in the leaked source code as warnings in that same function.
 
-![](Link_To_Screenshot_Strings_Here)
+![](https://github.com/j0nathanj/CTF-WriteUps/blob/master/2018/RealWorldCTF-2018/pwn/P90_Rush_B/images/Strings_From_SRC.png)
 
 After reversing the new "patched" function, we noticed a lot similarities to the leaked source. However, when we got to the piece of code that we __thought__ was vulnerable (the `Get()` call that we found), we noticed some boundary checks for the `zipFileHeader.fileNameLength`: 
 
-![](Link_to_screenshot_Patch_here)
+![](https://github.com/j0nathanj/CTF-WriteUps/blob/master/2018/RealWorldCTF-2018/pwn/P90_Rush_B/images/bug_fix.png)
 
 At this point we knew that what we thought was a bug was actually fixed already. So, we kept reversing, and got to the piece of code which was reported as buggy.
 
-![](Link_to_vulnerable_code_here) 
+![](https://github.com/j0nathanj/CTF-WriteUps/blob/master/2018/RealWorldCTF-2018/pwn/P90_Rush_B/images/vuln.png) 
 
 Thanks to our variable-renaming, we immediately noticed something was off.
 
@@ -195,7 +195,7 @@ Now that we are past the `PK56` header validations, we can try overflowing `tmpS
 
 At first, we tried to just add a lot of `A`s and hope for EIP control, but then we noticed that there is a lot of metadata on the stack that is still being used in the function... we thought a little bit and we noticed that the only access to the data stored on the stack is looks like the following (this is an actual example from the binary):
 
-![](Link_To_asm_example_here)
+![](https://github.com/j0nathanj/CTF-WriteUps/blob/master/2018/RealWorldCTF-2018/pwn/P90_Rush_B/images/asm_example.png)
 
 (Notice, the access to a stack-address is sometimes also used in the destination of the instruction)
 
@@ -289,7 +289,7 @@ print '[+] Full payload generated.\n'
 
 After inserting our crafted payload, fixing the `fileLen`, and `fileNameLength` we can finally execute our code!
 
-![](Insert_link_to_GIF_here)
+![](https://github.com/j0nathanj/CTF-WriteUps/blob/master/2018/RealWorldCTF-2018/pwn/P90_Rush_B/images/poc.gif)
 
 ## Conclusions and lessons learned
 
