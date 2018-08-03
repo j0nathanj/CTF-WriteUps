@@ -304,4 +304,3 @@ We had a lot of fun exploiting this challenge, and actually finding a 0day in a 
 
 Looking forward to Real World CTF Finals - 2018!
 
-- perfect blue - 
