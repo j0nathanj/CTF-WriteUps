@@ -289,7 +289,7 @@ print '[+] Full payload generated.\n'
 
 After inserting our crafted payload, fixing the `fileLen`, and `fileNameLength` we can finally execute our code!
 
-The final .BSP file (map) can be found ![here](https://github.com/j0nathanj/CTF-WriteUps/blob/master/2018/RealWorldCTF-2018/pwn/P90_Rush_B/src/exploit.bsp)
+The final .BSP file (map) can be found [here](https://github.com/j0nathanj/CTF-WriteUps/blob/master/2018/RealWorldCTF-2018/pwn/P90_Rush_B/src/exploit.bsp)
 
 ![](https://github.com/j0nathanj/CTF-WriteUps/blob/master/2018/RealWorldCTF-2018/pwn/P90_Rush_B/images/csgo_calc.gif)
 
