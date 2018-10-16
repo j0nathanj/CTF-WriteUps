@@ -11,7 +11,7 @@
 #define ARRAY_MAX              1024   // MAX ARRAY LENGTH
 #define PADDING_MAX            1024   // MAX PADDING SIZE
 #define MAX_NAME_SIZE          32     // MAX NAME LENGTH
-#define MAX_SHORT              65536  // == 2^16 
+#define MAX_SHORT              65536  // == 2^16 (this is actually MAX_SHORT + 1)
 #define DISCOUNT_MAGIC         3
 #define SERIAL_MAGIC           3133731337
 #define MIN_MONEY_FOR_NORMAL   5
