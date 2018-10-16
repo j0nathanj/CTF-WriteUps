@@ -5,7 +5,7 @@
 #include <time.h>
 
 /*----------------------------------*/
-/* 		  Some definitions  		*/
+/*       Some definitions           */
 /*----------------------------------*/
 
 #define ARRAY_MAX              1024   // MAX ARRAY LENGTH
@@ -18,7 +18,7 @@
 #define MIN_MONEY_FOR_ELIGIBLE 10
 
 /*----------------------------------*/
-/* 		Structs definitions 		*/
+/*       Structs definitions        */
 /*----------------------------------*/
 
 typedef struct computer{
@@ -46,7 +46,7 @@ typedef struct computer_node{
 } computer_node;
 
 /*----------------------------------*/
-/* 		Function declarations 		*/
+/*        Function declarations     */
 /*----------------------------------*/
 void buy_premium_user();
 void buy_multiple_premium_users();
@@ -73,7 +73,7 @@ unsigned char computers_bitmap[ARRAY_MAX] = {0};
 unsigned int discount_rate = 0;
 
 /*----------------------------------------------*/
-/* 		Functions Actual Implementations 		*/
+/*      Functions Actual Implementations        */
 /*----------------------------------------------*/
 
 void puts_wrapper(char* str)
