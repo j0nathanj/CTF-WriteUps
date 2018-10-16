@@ -60,7 +60,7 @@ computer_node* find_computer(computer_node* computers_list, char* comp_name);
 computer_node* traverse_to_head(computer_node* somewhere_in_the_list);
 
 /*----------------------------------*/
-/*  	  Global variables    	    */
+/*        Global variables          */
 /*----------------------------------*/
 
 unsigned short user_count = 0;
