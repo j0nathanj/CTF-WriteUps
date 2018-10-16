@@ -4,6 +4,7 @@ I wrote this challenge for noxCTF 2018, you can find the binaries, the exploit, 
 The description of the challenge was:
 
 ```
-We heard that noxComputers Ltd. have the best computers in town, and they have awesome customer-related policies as well!
+We heard that noxComputers Ltd. have the best computers in town, 
+and they have awesome customer-related policies as well!
 You should check it out :)
 ```
