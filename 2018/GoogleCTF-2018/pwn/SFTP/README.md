@@ -101,7 +101,7 @@ This will overwrite the `__isoc99_scanf()` GOT entry, with the address of `syste
 
 Flag: `CTF{Moar_Randomz_Moar_Mitigatez!}`
 
-The exploit code attached below is very detailed, I added a lot of documentation to it to make the reading of it more convinient.
+The exploit code attached below is very detailed, I added a lot of documentation to it to make the reading of it more convenient.
 (The exploit code is also attached, called `exploit.py`)
 
 [exploit.py](https://github.com/j0nathanj/CTF-WriteUps/blob/master/2018/GoogleCTF-2018/pwn/SFTP/exploit.py)
